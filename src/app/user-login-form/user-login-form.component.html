@@ -1,0 +1,13 @@
+<div>
+    <h2>Login</h2>
+    <form>
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="userData.Username" name="username" required>
+  
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="userData.Password" name="password" required>
+  
+      <button mat-raised-button color="primary" (click)="loginUser()">Login</button>
+    </form>
+  </div>
+  

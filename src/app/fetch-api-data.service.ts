@@ -8,7 +8,7 @@ const apiUrl = ' https://movie-place-35ed6ca44a78.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class FetchApiDataService {
   constructor(private http: HttpClient) { }
 
   public userRegistration(userDetails: any): Observable<any> {
@@ -17,11 +17,13 @@ export class ApiService {
     );
   }
 
-  public userLogin(credentials: any): Observable<any> {
-    return this.http.post(apiUrl + 'login', credentials).pipe(
+  public userLogin(userDetails: any): Observable<any> {
+    console.log(userDetails);
+    return this.http.post(apiUrl + 'login', userDetails).pipe(
       catchError(this.handleError)
     );
   }
+
 
   public getAllMovies(): Observable<any> {
     return this.http.get(apiUrl + 'movies').pipe(
