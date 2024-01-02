@@ -20,13 +20,17 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"]
   },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-  "include": ["src/**/*.ts"]
+  }
+  
 
 }
 

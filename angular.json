@@ -94,7 +94,12 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "repo": "https://github.com/corto0406/myFlix-Angular-client.git",
+            "branch": "gh-pages",
+            "skipDir": true
+          }
         },
         "assets": [
           "src/favicon.ico",
