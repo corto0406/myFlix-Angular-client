@@ -84,6 +84,7 @@
             "buildTarget": "myFlix-Angular-client:build"
           }
         },
+    
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -107,6 +108,11 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
         }
+        "assets": [
+          "src/favicon.ico",
+          "src/assets",
+          "src/404.html" // Add this line
+        ]
       }
     }
   }
