@@ -107,11 +107,11 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
-        }
+        },
         "assets": [
           "src/favicon.ico",
           "src/assets",
-          "src/404.html" // Add this line
+          "src/404.html" 
         ]
       }
     }
