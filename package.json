@@ -9,11 +9,8 @@
     "test": "ng test"
     
   },
-  "options": {
-    "baseHref": "/myappi-tester/"
-  },
-
-  "private": true,
+ 
+"private": true,
   "dependencies": {
     "@angular/animations": "^17.0.0",
     "@angular/cdk": "^17.0.4",
