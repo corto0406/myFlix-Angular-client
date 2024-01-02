@@ -1,0 +1,26 @@
+<div class="profile-container">
+    <h2>User Profile</h2>
+  
+    <div *ngIf="!isEditing">
+      <p><strong>ID:</strong> {{ user.id }}</p>
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <!-- Add other profile properties as needed -->
+    </div>
+  
+    <div *ngIf="isEditing">
+      <label for="username">Username:</label>
+      <input id="username" type="text" [(ngModel)]="user.username" />
+  
+      <label for="email">Email:</label>
+      <input id="email" type="email" [(ngModel)]="user.email" />
+      <!-- Add other input fields for additional profile properties -->
+  
+      <button (click)="saveChanges()">Save Changes</button>
+    </div>
+  
+    <button (click)="toggleEdit()">
+      {{ isEditing ? 'Cancel Editing' : 'Edit Profile' }}
+    </button>
+  </div>
+  

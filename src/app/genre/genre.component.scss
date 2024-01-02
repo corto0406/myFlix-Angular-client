@@ -1,0 +1,27 @@
+/* genre.component.scss */
+
+.genre-dialog {
+    width: 300px; /* Set the width of the genre dialog */
+    background-color: #fff; /* Set the background color */
+    padding: 20px; /* Add padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+  
+  .genre-dialog-title {
+    font-size: 1.5rem; /* Set the title font size */
+    color: #333; /* Set the title color */
+    margin-bottom: 10px; /* Add margin below the title */
+  }
+  
+  .genre-dialog-content {
+    font-size: 1rem; /* Set the content font size */
+    color: #666; /* Set the content color */
+  }
+  
+  .genre-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #333; /* Set the close button color */
+  }
+  
