@@ -10,7 +10,7 @@
     
   },
   "options": {
-    "baseHref": "/myappi-test/"
+    "baseHref": "/myappi-tester/"
   },
 
   "private": true,
