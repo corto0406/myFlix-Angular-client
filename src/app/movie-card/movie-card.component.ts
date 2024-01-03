@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,14 +14,15 @@ import { MovieDetailsComponent } from '../movie-details/movie-details.component'
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
-  movies: any[] = [];
+  @Input() movies: any[] = [];
+  favoriteMovies: string[] = [];
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-    private router: Router // Inject the Router
-  ) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -50,43 +51,49 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-
   showAddToFavoritesButton(movie: any): boolean {
-    // Implement the condition to determine whether to show the "Add to Favorites" button
-    // For example, check if the movie is not already in favorites
-    // You can customize this logic based on your requirements
-    return true;
+    return !this.isFavoriteMovie(movie._id);
   }
 
+  isFavoriteMovie(movieId: string): boolean {
+    return this.favoriteMovies.includes(movieId);
+  }
 
-  openDirector(name: string, description: string): void {
+  toggleFavoriteMovie(movieId: string): void {
+    if (this.isFavoriteMovie(movieId)) {
+      // Remove from favorites
+      this.favoriteMovies = this.favoriteMovies.filter((id) => id !== movieId);
+    } else {
+      // Add to favorites
+      this.favoriteMovies.push(movieId);
+    }
+  }
+  openDirector(director: any): void {
     this.dialog.open(DirectorComponent, {
       data: {
         director: {
-          director: name,
-          description: description,
-        }
+          director: director.name,
+          description: director.description,
+        },
       },
       width: '400px',
     });
   }
-  openSynopsis(Title: string, Description: string): void {
+
+  openSynopsis(title: string, description: string): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
-        Title: Title,
-        Description: Description,
+        title: title,
+        description: description,
       },
       width: '400px',
     });
   }
 
-
-  // Navigate to the welcome view
   goToWelcome(): void {
     this.router.navigate(['/welcome']);
   }
 
-  // Navigate to the profile view
   goToProfile(): void {
     this.router.navigate(['/profile']);
   }

@@ -1,18 +1,26 @@
-// genre.component.ts
-
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-interface GenreDetailsData {
-  name: string;
-  description: string;
-}
 
 @Component({
   selector: 'app-genre',
   templateUrl: './genre.component.html',
-  styleUrls: ['./genre.component.scss'],
+  styleUrls: ['./genre.component.scss']
 })
-export class GenreComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: GenreDetailsData) {}
+export class GenreComponent implements OnInit {
+  /**
+   * This is the constructor for the component
+   * @param data 
+   * @returns Title and Description aka genres name
+   */
+  constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      name: string;
+      description: string;
+    }
+  ) {}
+  ngOnInit(): void {
+      
+  }
+
 }
