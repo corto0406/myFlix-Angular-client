@@ -1,11 +1,6 @@
 <mat-card class="director-dialog">
-  <button
-    class="director-close-button"
-    mat-stroked-button
-    aria-label="Close the director details button"
-    mat-dialog-close
-    color="primary"
-  >
+  <button class="director-close-button" mat-stroked-button aria-label="Close the director details button"
+    mat-dialog-close color="primary">
     X
   </button>
   <mat-card-title>
@@ -13,12 +8,6 @@
   </mat-card-title>
   <br />
   <mat-dialog-content class="director-dialog-content">
-    <b>Born: </b>{{ data.birth_year }}
-    <br />
-    <br />
-    <b>Died: </b>{{ data.death_year }}
-    <br />
-    <br />
-    <b>Bio: </b>{{ data.bio }}
+    <b>Bio: </b>{{ data.name }}
   </mat-dialog-content>
 </mat-card>

@@ -22,7 +22,7 @@ export class MovieCardComponent implements OnInit {
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -35,10 +35,11 @@ export class MovieCardComponent implements OnInit {
   }
 
   openGenre(genres: any[]): void {
-    const dialogRef = this.dialog.open(GenreComponent, {
+    console.log(genres)
+    this.dialog.open(GenreComponent, {
       data: {
         name: 'Genres',
-        description: genres.map((genre) => genre.name).join(', '),
+        description: genres
       },
       width: '400px',
     });
@@ -71,15 +72,11 @@ export class MovieCardComponent implements OnInit {
   openDirector(director: any): void {
     this.dialog.open(DirectorComponent, {
       data: {
-        director: {
-          director: director.name,
-          description: director.description,
-        },
+        name: director
       },
       width: '400px',
     });
   }
-
   openSynopsis(title: string, description: string): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
