@@ -1,16 +1,20 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+/**
+ * DirectorComponent displays information about a director.
+ * @class
+ */
 @Component({
   selector: 'app-director',
   templateUrl: './director.component.html',
   styleUrls: ['./director.component.scss']
 })
-export class DirectorComponent implements OnInit{
+export class DirectorComponent implements OnInit {
   /**
-   * This is the constructor for the component
-   * @param data 
-   * @returns director name, bio, birth_year, and death_year
+   * Constructor for the DirectorComponent.
+   * @constructor
+   * @param data - Data containing director information.
    */
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -21,7 +25,12 @@ export class DirectorComponent implements OnInit{
       death_year: string;
     }
   ) {}
+
+  /**
+   * Lifecycle hook called after the component is initialized.
+   * @method
+   */
   ngOnInit(): void {
-      
+    // Initialization logic can be added here if needed.
   }
 }

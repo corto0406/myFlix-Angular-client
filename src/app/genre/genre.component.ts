@@ -1,6 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+/**
+ * GenreComponent displays information about a movie genre.
+ * @class
+ */
 @Component({
   selector: 'app-genre',
   templateUrl: './genre.component.html',
@@ -8,9 +12,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class GenreComponent implements OnInit {
   /**
-   * This is the constructor for the component
-   * @param data 
-   * @returns Title and Description aka genres name
+   * Constructor for the GenreComponent.
+   * @constructor
+   * @param data - Data containing genre information.
    */
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -19,8 +23,12 @@ export class GenreComponent implements OnInit {
       description: string;
     }
   ) {}
-  ngOnInit(): void {
-      
-  }
 
+  /**
+   * Lifecycle hook called after the component is initialized.
+   * @method
+   */
+  ngOnInit(): void {
+    // Initialization logic can be added here if needed.
+  }
 }

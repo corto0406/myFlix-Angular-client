@@ -4,6 +4,10 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
+/**
+ * UserLoginFormComponent represents the login form for the user.
+ * @class
+ */
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -12,15 +16,31 @@ import { Router } from '@angular/router';
 export class UserLoginFormComponent implements OnInit {
   @Input() userData = { Username: '', Password: '' };
 
+  /**
+   * Constructor for the UserLoginFormComponent.
+   * @constructor
+   * @param fetchApiData - Service for fetching API data.
+   * @param dialogRef - Reference to the MatDialog for the login form.
+   * @param snackBar - Material Snackbar service for displaying messages.
+   * @param router - Angular router service.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar,
-    private router: Router // Inject the Router service
+    private router: Router
   ) {}
 
+  /**
+   * Lifecycle hook that is called after data-bound properties of a directive are initialized.
+   * @method
+   */
   ngOnInit(): void {}
 
+  /**
+   * Handles the login process when the user clicks the login button.
+   * @method
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       () => {

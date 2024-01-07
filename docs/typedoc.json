@@ -1,0 +1,7 @@
+{
+    "out": "./docs",
+    "src": "./src",
+    "includeDeclarations": true,
+    "exclude": ["**/*.spec.ts"]
+  }
+  

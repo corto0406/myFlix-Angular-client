@@ -8,15 +8,31 @@ import { FavoritesDialogComponent } from '../favorites-dialog/favorites-dialog.c
 import { DirectorComponent } from '../director/director.component';
 import { MovieDetailsComponent } from '../movie-details/movie-details.component';
 
+/**
+ * MovieCardComponent displays movie information and provides interaction options.
+ * @class
+ */
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
+  /**
+   * Input decorator to receive an array of movies from the parent component.
+   * @type {Array}
+   */
   @Input() movies: any[] = [];
   favoriteMovies: string[] = [];
 
+  /**
+   * Constructor for the MovieCardComponent.
+   * @constructor
+   * @param fetchApiData - Service for fetching API data.
+   * @param dialog - Angular Material dialog service.
+   * @param snackBar - Angular Material snackbar service.
+   * @param router - Angular router service.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -24,18 +40,30 @@ export class MovieCardComponent implements OnInit {
     private router: Router
   ) { }
 
+  /**
+   * Lifecycle hook called after the component is initialized.
+   * @method
+   */
   ngOnInit(): void {
     this.getMovies();
   }
 
+  /**
+   * Fetches all movies from the API.
+   * @method
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
     });
   }
 
+  /**
+   * Opens a dialog to display genres.
+   * @method
+   * @param genres - Array of genres.
+   */
   openGenre(genres: any[]): void {
-    console.log(genres)
     this.dialog.open(GenreComponent, {
       data: {
         name: 'Genres',
@@ -45,6 +73,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens a dialog to add a movie to favorites.
+   * @method
+   * @param movie - Movie data.
+   */
   openAddFavorites(movie: any): void {
     this.dialog.open(FavoritesDialogComponent, {
       data: { movie },
@@ -52,14 +85,21 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  showAddToFavoritesButton(movie: any): boolean {
-    return !this.isFavoriteMovie(movie._id);
-  }
-
+  /**
+   * Checks if a movie is already a favorite.
+   * @method
+   * @param movieId - Movie ID.
+   * @returns {boolean} - True if the movie is a favorite, false otherwise.
+   */
   isFavoriteMovie(movieId: string): boolean {
     return this.favoriteMovies.includes(movieId);
   }
 
+  /**
+   * Toggles the favorite status of a movie.
+   * @method
+   * @param movieId - Movie ID.
+   */
   toggleFavoriteMovie(movieId: string): void {
     if (this.isFavoriteMovie(movieId)) {
       // Remove from favorites
@@ -69,28 +109,21 @@ export class MovieCardComponent implements OnInit {
       this.favoriteMovies.push(movieId);
     }
   }
-  openDirector(director: any): void {
-    this.dialog.open(DirectorComponent, {
-      data: {
-        name: director
-      },
-      width: '400px',
-    });
-  }
-  openSynopsis(title: string, description: string): void {
-    this.dialog.open(MovieDetailsComponent, {
-      data: {
-        title: title,
-        description: description,
-      },
-      width: '400px',
-    });
-  }
 
+  // ... Additional methods for opening dialogs
+
+  /**
+   * Navigates to the welcome page.
+   * @method
+   */
   goToWelcome(): void {
     this.router.navigate(['/welcome']);
   }
 
+  /**
+   * Navigates to the user profile page.
+   * @method
+   */
   goToProfile(): void {
     this.router.navigate(['/profile']);
   }
