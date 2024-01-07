@@ -1,4 +1,4 @@
-# myFlix-Angular-client Portfolio Project
+# myFlix-Angular-client 
 
 Welcome to myFlix-Angular-client, a powerful Angular application developed by Nemanja Banicevic. This project serves as a feature-rich client for the myFlix API, delivering an immersive movie-watching experience.
 
@@ -24,6 +24,12 @@ Welcome to myFlix-Angular-client, a powerful Angular application developed by Ne
 3. **Start the Application**: Execute `ng serve`
 4. **Explore the App**: Visit http://localhost:4200/ to experience myFlix-Angular-client.
 
+## Author and License
+
+```markdown
+- **Author**: Nemanja Banicevic (GitHub: [corto0406-github])
+- **License**: This project is open-source and available under the [MIT License](LICENSE).
+
 ## Deployment
 
 Deploy the application with ease using the following command:
@@ -31,6 +37,3 @@ Deploy the application with ease using the following command:
 ```bash
 npx angular-cli-ghpages --dir=dist/myFlix-Angular-client
 
-- **Author**: Nemanja Banicevic (GitHub: [corto0406-github])
-
-- **License**: This project is open-source and available under the [MIT License](LICENSE).
