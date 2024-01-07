@@ -32,4 +32,5 @@ Deploy the application with ease using the following command:
 npx angular-cli-ghpages --dir=dist/myFlix-Angular-client
 
 - **Author**: Nemanja Banicevic (GitHub: [corto0406-github])
+
 - **License**: This project is open-source and available under the [MIT License](LICENSE).
